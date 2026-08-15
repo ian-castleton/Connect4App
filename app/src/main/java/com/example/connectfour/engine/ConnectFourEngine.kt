@@ -65,7 +65,7 @@ class ConnectFourEngine {
     private val board = Array(BOARD_WIDTH) { Array(BOARD_HEIGHT) { BoardSquare() } }
     private val winningLines = Array(WINNING_LINES) { WinningLine() }
     private val countersInColumn = IntArray(BOARD_WIDTH)
-    private val history = IntArray(42)
+    private val history = IntArray(43)  // History is indexed from position 1.
 
     /** Column visit order used by search algorithms - centre-out, as in the original. */
     val searchOrder = intArrayOf(3, 2, 4, 1, 5, 0, 6)
