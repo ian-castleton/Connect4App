@@ -154,7 +154,26 @@ fun ConnectFourScreen(algorithm: GameAlgorithm = remember { MinimaxAlgorithm() }
             }
         )
 
-        Spacer(Modifier.height(24.dp))
+        Spacer(Modifier.height(4.dp))
+        Row(
+            modifier = Modifier.padding(horizontal = 8.dp),
+            horizontalArrangement = Arrangement.Center
+        ) {
+            for (col in 0 until BOARD_WIDTH) {
+                Box(
+                    modifier = Modifier.size(width = 44.dp, height = 24.dp),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Text(
+                        text = (col + 1).toString(),
+                        fontSize = 14.sp,
+                        fontWeight = FontWeight.Bold
+                    )
+                }
+            }
+        }
+
+        Spacer(Modifier.height(20.dp))
         Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
             Button(onClick = {
                 engine.reset()
