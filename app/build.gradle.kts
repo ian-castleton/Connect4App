@@ -1,24 +1,24 @@
-import com.android.build.api.dsl.ApplicationExtension
-
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.plugin.compose")
 }
 
-configure<ApplicationExtension> {
+android {
     namespace = "com.example.connectfour"
     compileSdk = 37
 
     defaultConfig {
         applicationId = "com.example.connectfour"
-        minSdk = 33
+        minSdk = 24
         versionCode = 1
         versionName = "1.0"
     }
 
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
+            isShrinkResources = true
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
     }
 
